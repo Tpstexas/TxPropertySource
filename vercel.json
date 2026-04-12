@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/properties", "destination": "/properties.html" },
+    { "source": "/properties/", "destination": "/properties.html" },
+    { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/admin/", "destination": "/admin.html" },
+    { "source": "/property/:id", "destination": "/property.html" }
+  ]
+}
