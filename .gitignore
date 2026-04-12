@@ -3,3 +3,4 @@ temporary screenshots/
 .DS_Store
 *.log
 .claude/
+.vercel
