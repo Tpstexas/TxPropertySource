@@ -615,6 +615,7 @@
     const saveBtn = document.getElementById('modal-save');
     saveBtn.disabled = true; saveBtn.textContent = 'Uploading…';
 
+    let uploaded = 0;
     for (const file of files) {
       const fd = new FormData();
       fd.append('image', file);
@@ -622,15 +623,17 @@
         const r = await authFetch('/api/upload', { method: 'POST', body: fd });
         if (!r) return; // 401 — logged out
         const d = await r.json();
-        if (d.url) { galleryImages.push(d.url); renderGallery(); }
-        else toast('Upload failed for ' + file.name, true);
+        if (d.url) { galleryImages.push(d.url); renderGallery(); uploaded++; }
+        else toast('Upload failed for ' + file.name + (d.error ? ': ' + d.error : ''), true);
       } catch { toast('Upload failed for ' + file.name, true); }
     }
 
     saveBtn.disabled = false; saveBtn.textContent = 'Save Property';
     document.getElementById('file-input').value = '';
-    toast(`${files.length} photo${files.length > 1 ? 's' : ''} uploaded ✓`);
-    closePanelFn();
+    if (uploaded > 0) {
+      toast(`${uploaded} photo${uploaded > 1 ? 's' : ''} uploaded ✓`);
+      closePanelFn();
+    }
   });
 
   // Drag & drop

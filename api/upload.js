@@ -62,13 +62,13 @@ module.exports = async function handler(req, res) {
   const storageName = crypto.randomUUID() + ext;
 
   const { error } = await supabase.storage
-    .from('property-images')
+    .from('Property-images')
     .upload(storageName, fileData, { contentType: mime, upsert: false });
 
   if (error) return res.status(500).json({ error: error.message });
 
   const { data: urlData } = supabase.storage
-    .from('property-images')
+    .from('Property-images')
     .getPublicUrl(storageName);
 
   return res.status(200).json({ url: urlData.publicUrl });
