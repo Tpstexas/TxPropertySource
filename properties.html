@@ -493,6 +493,11 @@
     </nav>
     <span class="foot-copy">© 2026 TxPropertySource. All rights reserved.</span>
   </div>
+  <div style="max-width:1100px;margin:32px auto 0;padding:24px 60px 0;border-top:1px solid rgba(235,220,200,.1);font-size:10px;line-height:1.6;color:rgba(235,220,200,.42);letter-spacing:.02em;">
+    <p style="margin-bottom:10px;font-weight:500;color:rgba(235,220,200,.6);">AADP Lending LLC &middot; NMLS #2528293 &nbsp;|&nbsp; Aron Paul Anderson &middot; NMLS #2491338 &nbsp;|&nbsp; Equal Housing Opportunity</p>
+    <p style="margin:0 0 10px;">Properties are sold by entities under common ownership with AADP Lending LLC. Financing through AADP Lending is offered as an option — buyers are not required to use AADP Lending and may use any lender of their choice.</p>
+    <p style="margin:0;">Consumers wishing to file a complaint against a company or a residential mortgage loan originator should complete and send a complaint form to the Texas Department of Savings and Mortgage Lending, 2601 North Lamar, Suite 201, Austin, Texas 78705. Complaint forms and instructions may be obtained from the department's website at www.sml.texas.gov. A toll-free consumer hotline is available at 1-877-276-5550. The department maintains a recovery fund to make payments of certain actual out-of-pocket damages sustained by borrowers caused by acts of licensed residential mortgage loan originators. A written application for reimbursement from the recovery fund must be filed with and investigated by the department prior to the payment of a claim. For more information about the recovery fund, please consult the department's website at www.sml.texas.gov.</p>
+  </div>
 </footer>
 
 
@@ -555,14 +560,14 @@ function renderCard(p) {
   const photoCount = (p.images && p.images.length > 1) ? `<div style="position:absolute;bottom:10px;right:10px;background:rgba(15,15,15,.65);color:#fff;font-size:9px;font-weight:600;padding:3px 8px;letter-spacing:.06em;z-index:2;">📷 ${p.images.length} photos</div>` : '';
   const desc = p.description ? `<p style="font-size:12.5px;line-height:1.65;color:rgba(15,15,15,.55);margin-bottom:14px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${p.description}</p>` : '';
   const moveinVal  = p.movein  ? `$${Number(p.movein).toLocaleString()}`  : null;
-  const monthlyVal = p.monthly ? `$${Number(p.monthly).toLocaleString()}/mo` : null;
+  const monthlyVal = p.monthly ? `$${Number(p.monthly).toLocaleString()}` : null;
   const priceRow = `
     <div>
-      <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:2px;">Move-In</div>
+      <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:2px;">RTO Move-In</div>
       <span class="prop-price" style="color:var(--gold);">${moveinVal || 'Contact Us'}</span>
     </div>
     <div style="text-align:right;">
-      <div style="font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,15,15,.35);margin-bottom:2px;">Monthly</div>
+      <div style="font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,15,15,.35);margin-bottom:2px;">Monthly Rent</div>
       <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:rgba(15,15,15,.65);">${monthlyVal || '—'}</span>
     </div>`;
   return `

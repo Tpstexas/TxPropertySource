@@ -879,7 +879,7 @@
         <p class="svc-body svc-body-light">Buy directly from us with fixed payments and zero bank involvement. A traditional path to home ownership and lasting security.</p>
         <ul class="check-list check-list-light">
           <li>Skip the bank — in-house approval</li>
-          <li>Fast 24-hour approval time</li>
+          <li>Direct approval — no bank delays</li>
           <li>Flexible down payment options</li>
           <li>Fixed monthly payments, no surprises</li>
         </ul>
@@ -1009,8 +1009,8 @@
             <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
           </svg>
         </div>
-        <h3 class="feat-h">Fast Approval</h3>
-        <p class="feat-p">Our streamlined internal process gets you approved in as little as 24 hours. Time is of the essence in Texas real estate.</p>
+        <h3 class="feat-h">Direct Decisions</h3>
+        <p class="feat-p">Decisions come directly from us — not weeks of bank underwriting. Because we know our own properties, we can review applications fast and respond personally.</p>
       </div>
       <div class="feat-card g-reveal g-d3">
         <div class="feat-icon">
@@ -1144,6 +1144,11 @@
       <a href="#contact" class="foot-a">Contact</a>
     </nav>
     <span class="foot-copy">© 2026 TxPropertySource. All rights reserved.</span>
+  </div>
+  <div style="max-width:1100px;margin:32px auto 0;padding:24px 60px 0;border-top:1px solid rgba(235,220,200,.1);font-size:10px;line-height:1.6;color:rgba(235,220,200,.42);letter-spacing:.02em;">
+    <p style="margin-bottom:10px;font-weight:500;color:rgba(235,220,200,.6);">AADP Lending LLC &middot; NMLS #2528293 &nbsp;|&nbsp; Aron Paul Anderson &middot; NMLS #2491338 &nbsp;|&nbsp; Equal Housing Opportunity</p>
+    <p style="margin:0 0 10px;">Properties are sold by entities under common ownership with AADP Lending LLC. Financing through AADP Lending is offered as an option — buyers are not required to use AADP Lending and may use any lender of their choice.</p>
+    <p style="margin:0;">Consumers wishing to file a complaint against a company or a residential mortgage loan originator should complete and send a complaint form to the Texas Department of Savings and Mortgage Lending, 2601 North Lamar, Suite 201, Austin, Texas 78705. Complaint forms and instructions may be obtained from the department's website at www.sml.texas.gov. A toll-free consumer hotline is available at 1-877-276-5550. The department maintains a recovery fund to make payments of certain actual out-of-pocket damages sustained by borrowers caused by acts of licensed residential mortgage loan originators. A written application for reimbursement from the recovery fund must be filed with and investigated by the department prior to the payment of a claim. For more information about the recovery fund, please consult the department's website at www.sml.texas.gov.</p>
   </div>
 </footer>
 
@@ -1290,9 +1295,9 @@ const faqs = [
   { q: 'What if I currently have a low credit score?',
     a: 'We take a more flexible approach than traditional banks — many of our buyers were turned down elsewhere. We do review credit, but we also look closely at your current income and ability to make the payments. Reach out and we\'ll tell you honestly where you stand.' },
   { q: 'How fast is the approval process?',
-    a: 'Our streamlined application process provides an approval decision in as little as 24 hours, helping you move in almost immediately.' },
+    a: 'Much faster than a bank. Because we handle everything in-house — no underwriting committees, no weeks of mortgage paperwork — most applicants hear back quickly. Rent-to-Own applications are typically reviewed within one business day.' },
   { q: 'Are all homes eligible for Rent-to-Own?',
-    a: 'Absolutely. Every single property in our Texas inventory is eligible for both Rent-to-Own and Owner Finance. You select the home and the path that fits you.' },
+    a: 'Yes — every property in our Texas inventory is offered under both Rent-to-Own and Owner Finance. You select the home and the path that fits you, subject to each listing\'s specific terms.' },
   { q: 'What are the upfront costs required?',
     a: 'We offer flexible terms and low upfront costs to make homeownership as accessible as possible. Each property listing details its specific requirements.' },
 ];
@@ -1371,11 +1376,11 @@ faqs.forEach(f => {
       const monthlyVal = p.monthly ? `$${Number(p.monthly).toLocaleString()}/mo` : null;
       const priceRow = `
         <div>
-          <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:2px;">Move-In</div>
+          <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:2px;">RTO Move-In</div>
           <span class="prop-price" style="color:var(--gold);">${moveinVal || 'Contact Us'}</span>
         </div>
         <div style="text-align:right;">
-          <div style="font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,15,15,.35);margin-bottom:2px;">Monthly</div>
+          <div style="font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,15,15,.35);margin-bottom:2px;">Monthly Rent</div>
           <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:rgba(15,15,15,.65);">${monthlyVal || '—'}</span>
         </div>`;
       return `
