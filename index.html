@@ -1356,10 +1356,14 @@ faqs.forEach(f => {
       featured = [...featured, ...rest].slice(0, 3);
     }
 
-    if (!featured.length) return; // keep skeleton
+    const grid = document.getElementById('featPropGrid');
+
+    if (!featured.length) {
+      grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:80px 20px;"><p style="font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(15,15,15,.45);font-style:italic;">New listings coming soon — check back shortly.</p></div>`;
+      return;
+    }
 
     const delays = ['g-d1', 'g-d2', 'g-d3'];
-    const grid = document.getElementById('featPropGrid');
     grid.innerHTML = featured.map((p, i) => {
       const cover = (p.images && p.images[0]) || p.image || '';
       const desc  = p.description ? `<p style="font-size:12.5px;line-height:1.65;color:rgba(15,15,15,.55);margin-bottom:14px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${p.description}</p>` : '';
@@ -1400,6 +1404,10 @@ faqs.forEach(f => {
     });
   } catch (e) {
     console.warn('Could not load featured properties:', e);
+    const grid = document.getElementById('featPropGrid');
+    if (grid) {
+      grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:80px 20px;"><p style="font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(15,15,15,.45);font-style:italic;">Unable to load properties right now — please try again shortly.</p></div>`;
+    }
   }
 })();
 </script>
