@@ -8,7 +8,7 @@ import { randomUUID } from 'crypto';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PORT = 3000;
-const ADMIN_PASSWORD = 'TxHeritage2024';   // ← change this to something private
+const ADMIN_PASSWORD = 'TxPropSource2024';   // ← change this to something private
 const DATA_FILE   = join(__dirname, 'data', 'properties.json');
 const UPLOADS_DIR = join(__dirname, 'uploads');
 
@@ -177,7 +177,7 @@ createServer(async (req, res) => {
     res.end('404 Not Found');
   }
 }).listen(PORT, () => {
-  console.log(`\n  Texas Heritage Homes`);
+  console.log(`\n  TxPropertySource`);
   console.log(`  Site:  http://localhost:${PORT}`);
   console.log(`  Admin: http://localhost:${PORT}/admin`);
   console.log(`  Password: ${ADMIN_PASSWORD}\n`);

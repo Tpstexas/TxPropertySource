@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Properties — Texas Heritage Homes</title>
+  <title>All Properties — TxPropertySource</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,19 +11,19 @@
 
   <style>
     :root {
-      --ink:    #111A15;
-      --dark:   #192720;
-      --dark2:  #1E3027;
-      --dark3:  #243C2E;
-      --sage:   #5C8A6E;
-      --sage-l: #7EAA8E;
-      --sage-p: #AAC4B4;
-      --gold:   #C4A84A;
-      --cream:  #EFF4EC;
-      --cream2: #E5EDE1;
-      --white:  #F8FAF7;
-      --dim:    rgba(210,235,220,0.82);
-      --dim2:   rgba(210,235,220,0.52);
+      --ink:    #0F0F0F;
+      --dark:   #1A1A1A;
+      --dark2:  #242424;
+      --dark3:  #2E2E2E;
+      --sage:   #8B5E3C;
+      --sage-l: #B07D5A;
+      --sage-p: #C9A88A;
+      --gold:   #C4884A;
+      --cream:  #F5F0EB;
+      --cream2: #EBE4DC;
+      --white:  #FAF8F6;
+      --dim:    rgba(235,220,200,0.82);
+      --dim2:   rgba(235,220,200,0.52);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,7 +56,7 @@
     }
     #nav.scrolled {
       padding: 14px 60px;
-      background: rgba(17, 26, 21, 0.95);
+      background: rgba(15, 15, 15, 0.95);
       backdrop-filter: blur(16px);
       box-shadow: 0 2px 40px rgba(0,0,0,.4);
     }
@@ -65,7 +65,7 @@
 
     .nav-a {
       font-size: 11px; font-weight: 500; letter-spacing: .18em;
-      text-transform: uppercase; color: rgba(248,250,247,.7);
+      text-transform: uppercase; color: rgba(250,248,246,.7);
       text-decoration: none; position: relative;
       transition: color .2s;
     }
@@ -83,11 +83,11 @@
       font-size: 11px; font-weight: 600; letter-spacing: .14em;
       text-transform: uppercase; text-decoration: none;
       color: var(--white); padding: 10px 24px;
-      border: 1px solid rgba(126,170,142,.45);
+      border: 1px solid rgba(176,125,90,.45);
       transition: border-color .25s, background .25s, transform .2s;
     }
     .nav-btn:hover {
-      border-color: var(--sage-l); background: rgba(92,138,110,.12);
+      border-color: var(--sage-l); background: rgba(139,94,60,.12);
       transform: translateY(-2px);
     }
 
@@ -124,8 +124,8 @@
       content: '';
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(92,138,110,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(92,138,110,.04) 1px, transparent 1px);
+        linear-gradient(rgba(139,94,60,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,94,60,.04) 1px, transparent 1px);
       background-size: 80px 80px;
       pointer-events: none;
     }
@@ -133,7 +133,7 @@
     .page-hero-glow {
       position: absolute; width: 60vw; height: 60vw; border-radius: 50%;
       top: -30%; right: -20%;
-      background: radial-gradient(circle, rgba(92,138,110,.08) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(139,94,60,.08) 0%, transparent 65%);
       pointer-events: none;
     }
     .page-hero-content { position: relative; z-index: 2; max-width: 680px; }
@@ -170,12 +170,12 @@
     .filter-btn {
       font-size: 10px; font-weight: 600; letter-spacing: .16em;
       text-transform: uppercase; padding: 9px 22px;
-      border: 1px solid rgba(126,170,142,.25); background: transparent;
-      color: rgba(248,250,247,.6); cursor: pointer;
+      border: 1px solid rgba(176,125,90,.25); background: transparent;
+      color: rgba(250,248,246,.6); cursor: pointer;
       transition: border-color .25s, background .25s, color .25s, transform .2s;
     }
     .filter-btn:hover {
-      border-color: rgba(126,170,142,.55); color: var(--white);
+      border-color: rgba(176,125,90,.55); color: var(--white);
       transform: translateY(-2px);
     }
     .filter-btn.active {
@@ -198,13 +198,13 @@
     .prop-card {
       background: var(--white);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
-      box-shadow: 0 4px 28px rgba(30,48,39,.1);
+      box-shadow: 0 4px 28px rgba(36,36,36,.1);
       transition: transform .35s cubic-bezier(.34,1.2,.64,1), box-shadow .35s;
       overflow: hidden;
     }
     .prop-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 56px rgba(30,48,39,.18);
+      box-shadow: 0 20px 56px rgba(36,36,36,.18);
     }
 
     .prop-img {
@@ -219,7 +219,7 @@
     .prop-card:hover .prop-img img { transform: scale(1.06); }
     .prop-img::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(17,26,21,.5) 0%, transparent 55%);
+      background: linear-gradient(to top, rgba(15,15,15,.5) 0%, transparent 55%);
     }
 
     .prop-tag {
@@ -263,7 +263,7 @@
       font-size: 10px; font-weight: 600; letter-spacing: .15em;
       text-transform: uppercase; color: var(--sage);
       text-decoration: none;
-      border-bottom: 1px solid rgba(92,138,110,.4);
+      border-bottom: 1px solid rgba(139,94,60,.4);
       padding-bottom: 2px;
       transition: border-color .2s, color .2s;
     }
@@ -276,7 +276,7 @@
     }
     .empty-state p {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; color: rgba(17,26,21,.45); font-style: italic;
+      font-size: 22px; color: rgba(15,15,15,.45); font-style: italic;
     }
 
     /* ── CTA STRIP ────────────────────────── */
@@ -287,8 +287,8 @@
     #cta-strip::before {
       content: ''; position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(92,138,110,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(92,138,110,.04) 1px, transparent 1px);
+        linear-gradient(rgba(139,94,60,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,94,60,.04) 1px, transparent 1px);
       background-size: 80px 80px; pointer-events: none;
     }
     .cta-inner { position: relative; z-index: 1; }
@@ -311,21 +311,21 @@
       padding: 16px 40px; background: var(--sage); color: var(--white);
       text-decoration: none;
       transition: background .25s, transform .2s, box-shadow .2s;
-      box-shadow: 0 6px 24px rgba(92,138,110,.35);
+      box-shadow: 0 6px 24px rgba(139,94,60,.35);
     }
     .btn-sage:hover {
       background: #4a7059; transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(92,138,110,.45);
+      box-shadow: 0 12px 36px rgba(139,94,60,.45);
     }
     .btn-outline {
       display: inline-block; margin-left: 16px;
       font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
       padding: 15px 40px; background: transparent;
-      border: 1px solid rgba(248,250,247,.3); color: var(--white);
+      border: 1px solid rgba(250,248,246,.3); color: var(--white);
       text-decoration: none;
       transition: border-color .25s, transform .2s;
     }
-    .btn-outline:hover { border-color: rgba(248,250,247,.7); transform: translateY(-3px); }
+    .btn-outline:hover { border-color: rgba(250,248,246,.7); transform: translateY(-3px); }
 
     /* ── FOOTER ───────────────────────────── */
     footer {
@@ -338,17 +338,17 @@
     .foot-links { display: flex; gap: 36px; }
     .foot-a {
       font-size: 11px; font-weight: 500; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(248,250,247,.45);
+      text-transform: uppercase; color: rgba(250,248,246,.45);
       text-decoration: none; transition: color .2s;
     }
     .foot-a:hover { color: var(--sage-l); }
     .foot-copy {
-      font-size: 11px; color: rgba(248,250,247,.3);
+      font-size: 11px; color: rgba(250,248,246,.3);
     }
 
     /* ── LOADER / SKELETON ────────────────── */
     .skeleton {
-      background: linear-gradient(90deg, rgba(92,138,110,.08) 25%, rgba(92,138,110,.14) 50%, rgba(92,138,110,.08) 75%);
+      background: linear-gradient(90deg, rgba(139,94,60,.08) 25%, rgba(139,94,60,.14) 50%, rgba(139,94,60,.08) 75%);
       background-size: 200% 100%;
       animation: shimmer 1.4s infinite;
       border-radius: 4px;
@@ -397,10 +397,12 @@
 <!-- ─── NAV ───────────────────────────────── -->
 <nav id="nav">
   <a href="/" style="text-decoration:none">
-    <svg class="logo-svg" viewBox="0 0 210 56" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 4 32 L 26 8 L 48 32" stroke="#7EAA8E" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="miter"/>
-      <text x="4" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="600" fill="#F8FAF7" letter-spacing="-0.5">Texas Heritage</text>
-      <text x="56" y="56" font-family="'Cormorant Garamond', Georgia, serif" font-size="11" font-weight="600" fill="#7EAA8E" letter-spacing="5">HOMES</text>
+    <svg class="logo-svg" viewBox="0 0 230 56" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="6" width="46" height="46" fill="none" stroke="#B07D5A" stroke-width="1.5"/>
+      <rect x="5" y="9" width="40" height="40" fill="none" stroke="#B07D5A" stroke-width="0.5" opacity="0.5"/>
+      <text x="25" y="39" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" fill="#B07D5A" text-anchor="middle" letter-spacing="-1">TX</text>
+      <text x="58" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="600" fill="#FAF8F6" letter-spacing="-0.5">TxProperty</text>
+      <text x="58" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="10" font-weight="600" fill="#B07D5A" letter-spacing="4">SOURCE</text>
     </svg>
   </a>
   <div class="nav-links">
@@ -476,10 +478,12 @@
 <!-- ─── FOOTER ────────────────────────────── -->
 <footer>
   <div class="foot-inner">
-    <svg style="height:32px;width:auto;" viewBox="0 0 210 56" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 4 32 L 26 8 L 48 32" stroke="#7EAA8E" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="miter"/>
-      <text x="4" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="600" fill="#F8FAF7" letter-spacing="-0.5">Texas Heritage</text>
-      <text x="56" y="56" font-family="'Cormorant Garamond', Georgia, serif" font-size="11" font-weight="600" fill="#7EAA8E" letter-spacing="5">HOMES</text>
+    <svg style="height:32px;width:auto;" viewBox="0 0 230 56" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="6" width="46" height="46" fill="none" stroke="#B07D5A" stroke-width="1.5"/>
+      <rect x="5" y="9" width="40" height="40" fill="none" stroke="#B07D5A" stroke-width="0.5" opacity="0.5"/>
+      <text x="25" y="39" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" fill="#B07D5A" text-anchor="middle" letter-spacing="-1">TX</text>
+      <text x="58" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="600" fill="#FAF8F6" letter-spacing="-0.5">TxProperty</text>
+      <text x="58" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="10" font-weight="600" fill="#B07D5A" letter-spacing="4">SOURCE</text>
     </svg>
     <nav class="foot-links">
       <a href="/#process" class="foot-a">How It Works</a>
@@ -487,7 +491,7 @@
       <a href="/#why" class="foot-a">About Us</a>
       <a href="/#contact" class="foot-a">Contact</a>
     </nav>
-    <span class="foot-copy">© 2025 Texas Heritage Homes. All rights reserved.</span>
+    <span class="foot-copy">© 2026 TxPropertySource. All rights reserved.</span>
   </div>
 </footer>
 
@@ -547,19 +551,19 @@ function renderCard(p) {
   const cover = (p.images && p.images[0]) || p.image || '';
   const img = cover
     ? `<img src="${cover}" alt="${p.title || ''}" loading="lazy">`
-    : `<div style="width:100%;height:100%;background:var(--dark3);display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(92,138,110,.3)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9l4-4 4 4 4-4 4 4"/></svg></div>`;
-  const photoCount = (p.images && p.images.length > 1) ? `<div style="position:absolute;bottom:10px;right:10px;background:rgba(17,26,21,.65);color:#fff;font-size:9px;font-weight:600;padding:3px 8px;letter-spacing:.06em;z-index:2;">📷 ${p.images.length} photos</div>` : '';
-  const desc = p.description ? `<p style="font-size:12.5px;line-height:1.65;color:rgba(17,26,21,.55);margin-bottom:14px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${p.description}</p>` : '';
+    : `<div style="width:100%;height:100%;background:var(--dark3);display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(139,94,60,.3)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9l4-4 4 4 4-4 4 4"/></svg></div>`;
+  const photoCount = (p.images && p.images.length > 1) ? `<div style="position:absolute;bottom:10px;right:10px;background:rgba(15,15,15,.65);color:#fff;font-size:9px;font-weight:600;padding:3px 8px;letter-spacing:.06em;z-index:2;">📷 ${p.images.length} photos</div>` : '';
+  const desc = p.description ? `<p style="font-size:12.5px;line-height:1.65;color:rgba(15,15,15,.55);margin-bottom:14px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${p.description}</p>` : '';
   const moveinVal  = p.movein  ? `$${Number(p.movein).toLocaleString()}`  : null;
   const monthlyVal = p.monthly ? `$${Number(p.monthly).toLocaleString()}/mo` : null;
   const priceRow = `
     <div>
-      <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,168,74,.7);margin-bottom:2px;">Move-In</div>
+      <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:2px;">Move-In</div>
       <span class="prop-price" style="color:var(--gold);">${moveinVal || 'Contact Us'}</span>
     </div>
     <div style="text-align:right;">
-      <div style="font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(17,26,21,.35);margin-bottom:2px;">Monthly</div>
-      <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:rgba(17,26,21,.65);">${monthlyVal || '—'}</span>
+      <div style="font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,15,15,.35);margin-bottom:2px;">Monthly</div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:rgba(15,15,15,.65);">${monthlyVal || '—'}</span>
     </div>`;
   return `
     <div class="prop-card" data-types="${(p.type||[]).join(',')}">
@@ -576,7 +580,7 @@ function renderCard(p) {
         ${specsHtml}
         ${desc}
         <div class="prop-foot">${priceRow}</div>
-        <a href="/property/${p.id}" class="prop-cta-link" style="display:block;text-align:right;margin-top:12px;border-top:1px solid rgba(17,26,21,.08);padding-top:12px;">View Details →</a>
+        <a href="/property/${p.id}" class="prop-cta-link" style="display:block;text-align:right;margin-top:12px;border-top:1px solid rgba(15,15,15,.08);padding-top:12px;">View Details →</a>
       </div>
     </div>`;
 }

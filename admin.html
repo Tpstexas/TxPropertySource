@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Texas Heritage Homes — Admin</title>
+<title>TxPropertySource — Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:   #111A15; --dark:  #192720; --dark2: #1E3027;
-    --sage:  #5C8A6E; --sage-l:#7EAA8E; --gold:  #C4A84A;
-    --cream: #EFF4EC; --cream2:#E5EDE1;
-    --white: #F8FAF7; --red:   #c0392b; --red-l: #e74c3c;
+    --ink:   #0F0F0F; --dark:  #1A1A1A; --dark2: #242424;
+    --sage:  #8B5E3C; --sage-l:#B07D5A; --gold:  #C4884A;
+    --cream: #F5F0EB; --cream2:#EBE4DC;
+    --white: #FAF8F6; --red:   #c0392b; --red-l: #e74c3c;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: #f4f6f4; color: var(--ink); }
@@ -23,15 +23,15 @@
   }
   .login-card {
     background: var(--dark2); padding: 52px 44px; width: 100%; max-width: 400px;
-    border: 1px solid rgba(92,138,110,.15); box-shadow: 0 32px 80px rgba(0,0,0,.5);
+    border: 1px solid rgba(139,94,60,.15); box-shadow: 0 32px 80px rgba(0,0,0,.5);
   }
   .login-logo { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
   .login-logo span { color: var(--sage-l); font-style: italic; }
-  .login-sub { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(200,228,210,.45); margin-bottom: 40px; }
+  .login-sub { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(235,220,200,.45); margin-bottom: 40px; }
   .login-label { display: block; font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-l); margin-bottom: 8px; }
   .login-input {
     width: 100%; padding: 13px 16px; background: rgba(255,255,255,.06);
-    border: 1px solid rgba(92,138,110,.25); color: var(--white); font-family: inherit; font-size: 15px;
+    border: 1px solid rgba(139,94,60,.25); color: var(--white); font-family: inherit; font-size: 15px;
     outline: none; transition: border-color .2s;
   }
   .login-input:focus { border-color: var(--sage-l); }
@@ -50,16 +50,16 @@
     background: var(--dark); padding: 0 32px;
     display: flex; align-items: center; justify-content: space-between;
     height: 64px; position: sticky; top: 0; z-index: 50;
-    border-bottom: 1px solid rgba(92,138,110,.12);
+    border-bottom: 1px solid rgba(139,94,60,.12);
   }
   .adm-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); }
   .adm-logo span { color: var(--sage-l); font-style: italic; }
   .adm-header-right { display: flex; align-items: center; gap: 16px; }
-  .adm-view-site { font-size: 11px; font-weight: 500; color: rgba(200,228,210,.5); text-decoration: none; letter-spacing: .12em; transition: color .2s; }
+  .adm-view-site { font-size: 11px; font-weight: 500; color: rgba(235,220,200,.5); text-decoration: none; letter-spacing: .12em; transition: color .2s; }
   .adm-view-site:hover { color: var(--sage-l); }
   .adm-logout {
     font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-    padding: 8px 18px; border: 1px solid rgba(92,138,110,.3); color: rgba(200,228,210,.6);
+    padding: 8px 18px; border: 1px solid rgba(139,94,60,.3); color: rgba(235,220,200,.6);
     background: none; cursor: pointer; transition: all .2s; font-family: inherit;
   }
   .adm-logout:hover { border-color: var(--sage-l); color: var(--white); }
@@ -99,8 +99,8 @@
   .prop-card-meta { display: flex; gap: 12px; margin-top: 4px; font-size: 12px; color: #7a9080; }
   .prop-card-types { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
   .type-badge { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid; }
-  .type-badge.rto { color: var(--sage); border-color: rgba(92,138,110,.4); background: rgba(92,138,110,.06); }
-  .type-badge.of  { color: var(--dark2); border-color: rgba(30,48,39,.25); background: rgba(30,48,39,.04); }
+  .type-badge.rto { color: var(--sage); border-color: rgba(139,94,60,.4); background: rgba(139,94,60,.06); }
+  .type-badge.of  { color: var(--dark2); border-color: rgba(36,36,36,.25); background: rgba(36,36,36,.04); }
   .prop-card-actions { display: flex; gap: 8px; padding: 12px 20px 16px; border-top: 1px solid #eef2ec; }
   .btn-edit, .btn-del, .btn-toggle {
     font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: .12em;
@@ -112,7 +112,7 @@
   .btn-del:hover { background: var(--red); color: var(--white); border-color: var(--red); }
   .btn-toggle { font-size: 10px; color: #888; border-color: #ddd; background: none; }
   .btn-toggle:hover { background: #f5f5f5; }
-  .btn-toggle.on { color: var(--gold); border-color: rgba(196,168,74,.4); background: rgba(196,168,74,.06); }
+  .btn-toggle.on { color: var(--gold); border-color: rgba(196,136,74,.4); background: rgba(196,136,74,.06); }
 
   .empty-state { text-align: center; padding: 80px 32px; color: #aab8a8; border: 2px dashed #d5e0d2; background: var(--white); }
   .empty-state h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 8px; color: #7a9080; }
@@ -138,7 +138,7 @@
     position: sticky; top: 0; z-index: 10;
   }
   .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); }
-  .modal-close { background: none; border: none; color: rgba(200,228,210,.5); cursor: pointer; font-size: 22px; line-height: 1; transition: color .2s; }
+  .modal-close { background: none; border: none; color: rgba(235,220,200,.5); cursor: pointer; font-size: 22px; line-height: 1; transition: color .2s; }
   .modal-close:hover { color: var(--white); }
   .modal-body { padding: 28px; }
 
@@ -192,7 +192,7 @@
     transition: border-color .2s, background .2s;
     font-family: inherit; width: 100%;
   }
-  .gallery-add-btn:hover { border-color: var(--sage); background: rgba(92,138,110,.05); }
+  .gallery-add-btn:hover { border-color: var(--sage); background: rgba(139,94,60,.05); }
 
   /* Add photo panel */
   .add-photo-panel {
@@ -206,7 +206,7 @@
     border: 2px dashed #c8dac4; padding: 20px; text-align: center; cursor: pointer;
     transition: all .2s; background: #fff; position: relative; margin-bottom: 12px;
   }
-  .upload-area:hover, .upload-area.drag { border-color: var(--sage); background: rgba(92,138,110,.04); }
+  .upload-area:hover, .upload-area.drag { border-color: var(--sage); background: rgba(139,94,60,.04); }
   .upload-area input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
   .upload-area-text { font-size: 13px; color: #7a9080; }
   .upload-area-text strong { color: var(--sage); }
@@ -285,8 +285,8 @@
 <!-- ── LOGIN ──────────────────────────────────────────────────────────────── -->
 <div id="login-screen">
   <div class="login-card">
-    <div class="login-logo">Texas <span>Heritage</span></div>
-    <div class="login-sub">Homes · Admin Portal</div>
+    <div class="login-logo">Tx<span>Property</span>Source</div>
+    <div class="login-sub">Admin Portal</div>
     <label class="login-label" for="pw">Admin Password</label>
     <input class="login-input" type="password" id="pw" placeholder="Enter password" autocomplete="current-password">
     <button class="login-btn" id="login-btn">Sign In</button>
@@ -297,7 +297,7 @@
 <!-- ── DASHBOARD ──────────────────────────────────────────────────────────── -->
 <div id="dashboard">
   <header class="adm-header">
-    <div class="adm-logo">Texas <span>Heritage</span> <span style="font-family:'DM Sans';font-size:11px;font-style:normal;color:rgba(200,228,210,.3);letter-spacing:.12em;text-transform:uppercase;margin-left:8px;">Admin</span></div>
+    <div class="adm-logo">Tx<span>Property</span>Source <span style="font-family:'DM Sans';font-size:11px;font-style:normal;color:rgba(235,220,200,.3);letter-spacing:.12em;text-transform:uppercase;margin-left:8px;">Admin</span></div>
     <div class="adm-header-right">
       <a href="/" target="_blank" class="adm-view-site">View Site ↗</a>
       <button class="adm-logout" id="logout-btn">Logout</button>
@@ -450,7 +450,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  let token      = localStorage.getItem('thh_token');
+  let token      = localStorage.getItem('txps_token');
   let properties = [];
   let editingId  = null;
   let deleteId   = null;
@@ -469,7 +469,7 @@
     if (!token) return showLogin();
     try {
       const r = await fetch('/api/properties', { headers: { Authorization: 'Bearer ' + token } });
-      if (r.status === 401) { token = null; localStorage.removeItem('thh_token'); return showLogin(); }
+      if (r.status === 401) { token = null; localStorage.removeItem('txps_token'); return showLogin(); }
       showDashboard(); loadProperties();
     } catch { showLogin(); }
   }
@@ -487,14 +487,14 @@
       const r = await fetch('/api/auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: pw }) });
       const d = await r.json();
       if (d.token) {
-        token = d.token; localStorage.setItem('thh_token', token);
+        token = d.token; localStorage.setItem('txps_token', token);
         showDashboard(); loadProperties();
       } else { err.textContent = 'Incorrect password. Please try again.'; }
     } catch { err.textContent = 'Connection error. Is the server running?'; }
   }
 
   document.getElementById('logout-btn').addEventListener('click', () => {
-    token = null; localStorage.removeItem('thh_token');
+    token = null; localStorage.removeItem('txps_token');
     document.getElementById('pw').value = ''; showLogin();
   });
 
@@ -736,7 +736,7 @@
     opts.headers = { ...opts.headers, Authorization: 'Bearer ' + token };
     const r = await fetch(url, opts);
     if (r.status === 401) {
-      token = null; localStorage.removeItem('thh_token');
+      token = null; localStorage.removeItem('txps_token');
       closeModal();
       showLogin();
       document.getElementById('login-err').textContent = 'Session expired — please sign in again.';

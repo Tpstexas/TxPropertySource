@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'TxHeritage2024';
-const JWT_SECRET = process.env.JWT_SECRET || 'thh-secret-key-change-me';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'TxPropSource2024';
+const JWT_SECRET = process.env.JWT_SECRET || 'txps-secret-key-change-me';
 
 module.exports = function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');

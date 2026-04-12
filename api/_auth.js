@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'thh-secret-key-change-me';
+const JWT_SECRET = process.env.JWT_SECRET || 'txps-secret-key-change-me';
 
 function verifyAuth(req) {
   const header = req.headers['authorization'] || '';

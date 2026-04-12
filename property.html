@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Property — Texas Heritage Homes</title>
+  <title>Property — TxPropertySource</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,10 +11,10 @@
 
   <style>
     :root {
-      --ink:    #111A15; --dark:   #192720; --dark2:  #1E3027;
-      --sage:   #5C8A6E; --sage-l: #7EAA8E; --sage-p: #AAC4B4;
-      --gold:   #C4A84A; --cream:  #EFF4EC; --cream2: #E5EDE1;
-      --white:  #F8FAF7; --dim:    rgba(210,235,220,0.82); --dim2: rgba(210,235,220,0.52);
+      --ink:    #0F0F0F; --dark:   #1A1A1A; --dark2:  #242424;
+      --sage:   #8B5E3C; --sage-l: #B07D5A; --sage-p: #C9A88A;
+      --gold:   #C4884A; --cream:  #F5F0EB; --cream2: #EBE4DC;
+      --white:  #FAF8F6; --dim:    rgba(235,220,200,0.82); --dim2: rgba(235,220,200,0.52);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -31,15 +31,15 @@
       padding: 24px 60px;
       transition: padding .4s ease, background .4s ease, box-shadow .4s ease;
     }
-    #nav.scrolled { padding: 14px 60px; background: rgba(17,26,21,.95); backdrop-filter: blur(16px); box-shadow: 0 2px 40px rgba(0,0,0,.4); }
+    #nav.scrolled { padding: 14px 60px; background: rgba(15,15,15,.95); backdrop-filter: blur(16px); box-shadow: 0 2px 40px rgba(0,0,0,.4); }
     .logo-svg { height: 42px; width: auto; display: block; }
     .nav-links { display: flex; align-items: center; gap: 40px; }
-    .nav-a { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(248,250,247,.7); text-decoration: none; position: relative; transition: color .2s; }
+    .nav-a { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(250,248,246,.7); text-decoration: none; position: relative; transition: color .2s; }
     .nav-a::after { content: ''; position: absolute; bottom: -3px; left: 0; height: 1px; width: 0; background: var(--sage-l); transition: width .35s cubic-bezier(.4,0,.2,1); }
     .nav-a:hover { color: var(--sage-l); }
     .nav-a:hover::after { width: 100%; }
-    .nav-btn { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; color: var(--white); padding: 10px 24px; border: 1px solid rgba(126,170,142,.45); transition: border-color .25s, background .25s, transform .2s; }
-    .nav-btn:hover { border-color: var(--sage-l); background: rgba(92,138,110,.12); transform: translateY(-2px); }
+    .nav-btn { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; color: var(--white); padding: 10px 24px; border: 1px solid rgba(176,125,90,.45); transition: border-color .25s, background .25s, transform .2s; }
+    .nav-btn:hover { border-color: var(--sage-l); background: rgba(139,94,60,.12); transform: translateY(-2px); }
     .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
     .burger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: .3s; }
     #mob-nav { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--dark); z-index: 99; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; padding: 80px 40px 60px; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
@@ -63,28 +63,28 @@
       width: 100%; height: 100%; object-fit: cover; display: block;
       transition: opacity .35s ease, transform .5s cubic-bezier(.16,1,.3,1);
     }
-    .gallery-main::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(17,26,21,.3) 0%, transparent 40%, transparent 70%, rgba(17,26,21,.55) 100%); pointer-events: none; }
-    .gallery-counter { position: absolute; bottom: 20px; right: 20px; background: rgba(17,26,21,.7); color: rgba(248,250,247,.8); font-size: 11px; font-weight: 500; letter-spacing: .1em; padding: 6px 12px; z-index: 2; }
+    .gallery-main::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,15,15,.3) 0%, transparent 40%, transparent 70%, rgba(15,15,15,.55) 100%); pointer-events: none; }
+    .gallery-counter { position: absolute; bottom: 20px; right: 20px; background: rgba(15,15,15,.7); color: rgba(250,248,246,.8); font-size: 11px; font-weight: 500; letter-spacing: .1em; padding: 6px 12px; z-index: 2; }
     .gallery-arrow {
       position: absolute; top: 50%; transform: translateY(-50%);
-      width: 44px; height: 44px; background: rgba(17,26,21,.6); border: 1px solid rgba(126,170,142,.3);
+      width: 44px; height: 44px; background: rgba(15,15,15,.6); border: 1px solid rgba(176,125,90,.3);
       color: var(--white); font-size: 18px; display: flex; align-items: center; justify-content: center;
       cursor: pointer; z-index: 3; transition: background .2s, border-color .2s; user-select: none;
     }
-    .gallery-arrow:hover { background: rgba(92,138,110,.3); border-color: rgba(126,170,142,.6); }
+    .gallery-arrow:hover { background: rgba(139,94,60,.3); border-color: rgba(176,125,90,.6); }
     .gallery-arrow.prev { left: 16px; }
     .gallery-arrow.next { right: 16px; }
 
     /* Thumbnails */
-    .gallery-thumbs { display: flex; gap: 6px; padding: 10px 0; overflow-x: auto; background: var(--ink); scrollbar-width: thin; scrollbar-color: rgba(92,138,110,.3) transparent; }
+    .gallery-thumbs { display: flex; gap: 6px; padding: 10px 0; overflow-x: auto; background: var(--ink); scrollbar-width: thin; scrollbar-color: rgba(139,94,60,.3) transparent; }
     .gallery-thumbs::-webkit-scrollbar { height: 4px; }
-    .gallery-thumbs::-webkit-scrollbar-thumb { background: rgba(92,138,110,.3); border-radius: 2px; }
+    .gallery-thumbs::-webkit-scrollbar-thumb { background: rgba(139,94,60,.3); border-radius: 2px; }
     .gallery-thumb { flex-shrink: 0; width: 128px; height: 96px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color .2s, opacity .2s; opacity: .55; }
     .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .gallery-thumb.active { border-color: var(--sage-l); opacity: 1; }
     .gallery-thumb:hover { opacity: .85; }
     .no-gallery { aspect-ratio: 4/3; max-height: 75vh; background: var(--dark2); display: flex; align-items: center; justify-content: center; }
-    .no-gallery svg { color: rgba(92,138,110,.2); }
+    .no-gallery svg { color: rgba(139,94,60,.2); }
 
     /* ── CONTENT ─────────────────────────────── */
     #content { background: var(--cream); padding: 56px 60px 80px; }
@@ -94,7 +94,7 @@
     .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
     .breadcrumb a { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--sage); text-decoration: none; }
     .breadcrumb a:hover { text-decoration: underline; }
-    .breadcrumb span { color: rgba(17,26,21,.3); font-size: 11px; }
+    .breadcrumb span { color: rgba(15,15,15,.3); font-size: 11px; }
 
     .prop-types { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
     .prop-type-badge { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 12px; }
@@ -106,29 +106,29 @@
       font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.08;
       letter-spacing: -.025em; color: var(--ink); margin-bottom: 8px;
     }
-    .prop-location { font-size: 13px; color: rgba(17,26,21,.5); display: flex; align-items: center; gap: 5px; margin-bottom: 32px; }
+    .prop-location { font-size: 13px; color: rgba(15,15,15,.5); display: flex; align-items: center; gap: 5px; margin-bottom: 32px; }
     .prop-location svg { color: var(--sage); }
 
     /* Stats bar */
     .stats-bar {
-      display: flex; gap: 0; border: 1px solid rgba(17,26,21,.1); margin-bottom: 36px; flex-wrap: wrap;
+      display: flex; gap: 0; border: 1px solid rgba(15,15,15,.1); margin-bottom: 36px; flex-wrap: wrap;
     }
     .stat-item {
-      flex: 1; min-width: 100px; padding: 18px 20px; border-right: 1px solid rgba(17,26,21,.1); text-align: center;
+      flex: 1; min-width: 100px; padding: 18px 20px; border-right: 1px solid rgba(15,15,15,.1); text-align: center;
     }
     .stat-item:last-child { border-right: none; }
     .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: var(--ink); line-height: 1; }
-    .stat-lbl { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(17,26,21,.45); margin-top: 4px; }
+    .stat-lbl { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(15,15,15,.45); margin-top: 4px; }
 
     /* Description */
     .section-label { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
-    .prop-description { font-size: 15px; line-height: 1.82; color: rgba(17,26,21,.75); white-space: pre-wrap; }
+    .prop-description { font-size: 15px; line-height: 1.82; color: rgba(15,15,15,.75); white-space: pre-wrap; }
 
     /* Right column — price card */
     .price-card {
       background: var(--dark); padding: 32px;
       position: sticky; top: 100px;
-      box-shadow: 0 12px 48px rgba(17,26,21,.18);
+      box-shadow: 0 12px 48px rgba(15,15,15,.18);
     }
     /* Move-In is the hero number */
     .price-movein-lbl { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
@@ -138,9 +138,9 @@
     .price-monthly-lbl { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--sage-l); margin-bottom: 4px; }
     .price-monthly { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--white); margin-bottom: 20px; }
     /* Total price (secondary) */
-    .price-divider { height: 1px; background: rgba(92,138,110,.15); margin-bottom: 16px; }
-    .price-total-lbl { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(248,250,247,.35); margin-bottom: 3px; }
-    .price-total { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: rgba(248,250,247,.55); margin-bottom: 24px; }
+    .price-divider { height: 1px; background: rgba(139,94,60,.15); margin-bottom: 16px; }
+    .price-total-lbl { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(250,248,246,.35); margin-bottom: 3px; }
+    .price-total { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: rgba(250,248,246,.55); margin-bottom: 24px; }
     .cta-phone {
       display: block; width: 100%; padding: 16px; background: var(--sage); color: var(--white);
       text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
@@ -148,16 +148,16 @@
     }
     .cta-phone:hover { background: #4a7059; }
     .cta-email {
-      display: block; width: 100%; padding: 15px; background: transparent; color: rgba(248,250,247,.7);
-      border: 1px solid rgba(126,170,142,.3); text-align: center; font-size: 11px; font-weight: 600;
+      display: block; width: 100%; padding: 15px; background: transparent; color: rgba(250,248,246,.7);
+      border: 1px solid rgba(176,125,90,.3); text-align: center; font-size: 11px; font-weight: 600;
       letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: border-color .25s, color .25s;
     }
     .cta-email:hover { border-color: var(--sage-l); color: var(--white); }
-    .price-note { font-size: 11px; color: rgba(248,250,247,.3); text-align: center; margin-top: 16px; line-height: 1.6; }
+    .price-note { font-size: 11px; color: rgba(250,248,246,.3); text-align: center; margin-top: 16px; line-height: 1.6; }
 
     /* ── LOADING / ERROR ─────────────────────── */
     #loading { display: flex; align-items: center; justify-content: center; min-height: 60vh; flex-direction: column; gap: 16px; }
-    .spinner { width: 36px; height: 36px; border: 2px solid rgba(92,138,110,.2); border-top-color: var(--sage); border-radius: 50%; animation: spin .8s linear infinite; }
+    .spinner { width: 36px; height: 36px; border: 2px solid rgba(139,94,60,.2); border-top-color: var(--sage); border-radius: 50%; animation: spin .8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
     #error-state { display: none; align-items: center; justify-content: center; min-height: 60vh; flex-direction: column; gap: 16px; text-align: center; padding: 40px; }
     #error-state h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; }
@@ -168,9 +168,9 @@
     footer { background: var(--ink); padding: 40px 60px; }
     .foot-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
     .foot-links { display: flex; gap: 36px; }
-    .foot-a { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: rgba(248,250,247,.45); text-decoration: none; transition: color .2s; }
+    .foot-a { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: rgba(250,248,246,.45); text-decoration: none; transition: color .2s; }
     .foot-a:hover { color: var(--sage-l); }
-    .foot-copy { font-size: 11px; color: rgba(248,250,247,.3); }
+    .foot-copy { font-size: 11px; color: rgba(250,248,246,.3); }
 
     /* ── RESPONSIVE ──────────────────────────── */
     @media (max-width: 1024px) {
@@ -184,7 +184,7 @@
       .burger { display: flex; }
       #content { padding: 40px 24px 64px; }
       .stats-bar { flex-wrap: wrap; }
-      .stat-item { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(17,26,21,.1); }
+      .stat-item { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(15,15,15,.1); }
       footer { padding: 32px 24px; }
       .foot-links { display: none; }
     }
@@ -198,10 +198,12 @@
 <!-- ── NAV ──────────────────────────────────── -->
 <nav id="nav">
   <a href="/" style="text-decoration:none">
-    <svg class="logo-svg" viewBox="0 0 210 56" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 4 32 L 26 8 L 48 32" stroke="#7EAA8E" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="miter"/>
-      <text x="4" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="600" fill="#F8FAF7" letter-spacing="-0.5">Texas Heritage</text>
-      <text x="56" y="56" font-family="'Cormorant Garamond', Georgia, serif" font-size="11" font-weight="600" fill="#7EAA8E" letter-spacing="5">HOMES</text>
+    <svg class="logo-svg" viewBox="0 0 230 56" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="6" width="46" height="46" fill="none" stroke="#B07D5A" stroke-width="1.5"/>
+      <rect x="5" y="9" width="40" height="40" fill="none" stroke="#B07D5A" stroke-width="0.5" opacity="0.5"/>
+      <text x="25" y="39" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" fill="#B07D5A" text-anchor="middle" letter-spacing="-1">TX</text>
+      <text x="58" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="600" fill="#FAF8F6" letter-spacing="-0.5">TxProperty</text>
+      <text x="58" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="10" font-weight="600" fill="#B07D5A" letter-spacing="4">SOURCE</text>
     </svg>
   </a>
   <div class="nav-links">
@@ -227,7 +229,7 @@
 <!-- ── LOADING ───────────────────────────────── -->
 <div id="loading">
   <div class="spinner"></div>
-  <p style="font-size:13px;color:rgba(248,250,247,.4);letter-spacing:.1em;">Loading property…</p>
+  <p style="font-size:13px;color:rgba(250,248,246,.4);letter-spacing:.1em;">Loading property…</p>
 </div>
 
 <!-- ── ERROR ─────────────────────────────────── -->
@@ -303,10 +305,12 @@
 <!-- ── FOOTER ────────────────────────────────── -->
 <footer>
   <div class="foot-inner">
-    <svg style="height:32px;width:auto;" viewBox="0 0 210 56" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 4 32 L 26 8 L 48 32" stroke="#7EAA8E" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="miter"/>
-      <text x="4" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="600" fill="#F8FAF7" letter-spacing="-0.5">Texas Heritage</text>
-      <text x="56" y="56" font-family="'Cormorant Garamond', Georgia, serif" font-size="11" font-weight="600" fill="#7EAA8E" letter-spacing="5">HOMES</text>
+    <svg style="height:32px;width:auto;" viewBox="0 0 230 56" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="6" width="46" height="46" fill="none" stroke="#B07D5A" stroke-width="1.5"/>
+      <rect x="5" y="9" width="40" height="40" fill="none" stroke="#B07D5A" stroke-width="0.5" opacity="0.5"/>
+      <text x="25" y="39" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" fill="#B07D5A" text-anchor="middle" letter-spacing="-1">TX</text>
+      <text x="58" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="600" fill="#FAF8F6" letter-spacing="-0.5">TxProperty</text>
+      <text x="58" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="10" font-weight="600" fill="#B07D5A" letter-spacing="4">SOURCE</text>
     </svg>
     <nav class="foot-links">
       <a href="/#process" class="foot-a">How It Works</a>
@@ -314,7 +318,7 @@
       <a href="/#why" class="foot-a">About Us</a>
       <a href="/#contact" class="foot-a">Contact</a>
     </nav>
-    <span class="foot-copy">© 2025 Texas Heritage Homes. All rights reserved.</span>
+    <span class="foot-copy">© 2026 TxPropertySource. All rights reserved.</span>
   </div>
 </footer>
 
@@ -409,7 +413,7 @@ function fmtPrice(n) { return n ? '$' + Number(n).toLocaleString() : null; }
 
 function render(p) {
   // Update page title
-  document.title = (p.title || 'Property') + ' — Texas Heritage Homes';
+  document.title = (p.title || 'Property') + ' — TxPropertySource';
 
   // Gallery
   const imgs = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);

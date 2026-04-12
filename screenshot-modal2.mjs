@@ -24,7 +24,7 @@ await page.goto('http://localhost:3000/admin', { waitUntil: 'networkidle2', cach
 await page.evaluate(() => { /* force fresh */ });
 
 // Log in
-await page.type('#pw', 'TxHeritage2024');
+await page.type('#pw', 'TxPropSource2024');
 await page.click('#login-btn');
 await page.waitForSelector('#add-btn', { visible: true, timeout: 5000 });
 
