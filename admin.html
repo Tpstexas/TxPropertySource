@@ -104,7 +104,7 @@
   .prop-card-types { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
   .type-badge { font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid; }
   .type-badge.rto { color: var(--sage); border-color: rgba(139,94,60,.4); background: rgba(139,94,60,.06); }
-  .type-badge.of  { color: var(--dark2); border-color: rgba(36,36,36,.25); background: rgba(36,36,36,.04); }
+  .type-badge.lease { color: var(--dark2); border-color: rgba(36,36,36,.25); background: rgba(36,36,36,.04); }
   .prop-card-actions { display: flex; gap: 8px; padding: 12px 20px 16px; border-top: 1px solid #eef2ec; }
   .btn-edit, .btn-del, .btn-toggle {
     font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: .12em;
@@ -388,7 +388,7 @@
           <label>Listing Type</label>
           <div class="check-group">
             <label class="check-label"><input type="checkbox" id="f-rto" value="rent-to-own"> Rent to Own</label>
-            <label class="check-label"><input type="checkbox" id="f-of"  value="owner-finance"> Owner Finance</label>
+            <label class="check-label"><input type="checkbox" id="f-lease" value="lease"> Lease</label>
           </div>
         </div>
         <div class="form-group">
@@ -544,7 +544,7 @@
           </div>
           <div class="prop-card-types">
             ${(p.type||[]).includes('rent-to-own')   ? '<span class="type-badge rto">Rent to Own</span>' : ''}
-            ${(p.type||[]).includes('owner-finance') ? '<span class="type-badge of">Owner Finance</span>' : ''}
+            ${(p.type||[]).includes('lease') ? '<span class="type-badge lease">Lease</span>' : ''}
           </div>
         </div>
         <div class="prop-card-actions">
@@ -693,7 +693,7 @@
       const el = document.getElementById(id); if (el) el.value = '';
     });
     document.getElementById('f-rto').checked      = true;
-    document.getElementById('f-of').checked       = true;
+    document.getElementById('f-lease').checked     = true;
     document.getElementById('f-active').checked   = true;
     document.getElementById('f-featured').checked = false;
   }
@@ -718,7 +718,7 @@
     document.getElementById('f-sqft').value   = p.sqft     || '';
     document.getElementById('f-desc').value   = p.description || '';
     document.getElementById('f-rto').checked  = (p.type||[]).includes('rent-to-own');
-    document.getElementById('f-of').checked   = (p.type||[]).includes('owner-finance');
+    document.getElementById('f-lease').checked = (p.type||[]).includes('lease');
     document.getElementById('f-active').checked   = !!p.active;
     document.getElementById('f-featured').checked = !!p.featured;
     // Populate gallery
@@ -753,7 +753,7 @@
   document.getElementById('modal-save').addEventListener('click', async () => {
     const types = [];
     if (document.getElementById('f-rto').checked) types.push('rent-to-own');
-    if (document.getElementById('f-of').checked)  types.push('owner-finance');
+    if (document.getElementById('f-lease').checked) types.push('lease');
 
     const body = {
       title:       document.getElementById('f-title').value.trim(),
