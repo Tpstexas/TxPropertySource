@@ -9,11 +9,10 @@
       "baths": 2,
       "sqft": 2392,
       "type": [
-        "rent-to-own",
-        "owner-finance"
+        "rent-to-own"
       ],
       "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=500&fit=crop&q=80",
-      "description": "Charming 3 bed, 2 bath Craftsman bungalow in Huntsville with 2,392 sq ft of living space. This home offers classic character, a spacious layout, and plenty of room for comfortable living. A great opportunity for buyers looking for flexibility through rent-to-own or owner financing.",
+      "description": "Charming 3 bed, 2 bath Craftsman bungalow in Huntsville with 2,392 sq ft of living space. This home offers classic character, a spacious layout, and plenty of room for comfortable living. A great opportunity for buyers looking for a flexible path to ownership through our rent-to-own program.",
       "featured": true,
       "active": true,
       "createdAt": "2025-01-01T00:00:00Z",
@@ -34,8 +33,7 @@
       "baths": 2.5,
       "sqft": 1800,
       "type": [
-        "rent-to-own",
-        "owner-finance"
+        "rent-to-own"
       ],
       "image": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&h=500&fit=crop&q=80",
       "description": "Beautiful newly remodeled home in Livingston.",
@@ -57,8 +55,7 @@
       "baths": 2,
       "sqft": 2300,
       "type": [
-        "rent-to-own",
-        "owner-finance"
+        "rent-to-own"
       ],
       "image": "https://images.unsplash.com/photo-1598228723793-52759bba239c?w=800&h=500&fit=crop&q=80",
       "description": "Newly remodeled lakeside home, ready to move in immediately.",
