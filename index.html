@@ -48,7 +48,7 @@
     }
 
     /* ── LOGO SVG ─────────────────────────── */
-    .logo-svg { height: 52px; width: auto; display: block; }
+    .logo-svg { height: 56px; width: auto; display: block; background: #fff; padding: 8px 16px; border-radius: 6px; }
 
     /* ── NAV ──────────────────────────────── */
     #nav {
@@ -370,6 +370,8 @@
     #process { background: var(--dark2); }
 
     .steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 28px; }
+    .infographic-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .infographic-img { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,.35), 0 4px 16px rgba(0,0,0,.25); }
 
     .step-num {
       font-family: 'Cormorant Garamond', serif;
@@ -757,23 +759,7 @@
 <!-- ─── NAV ──────────────────────────────────── -->
 <nav id="nav">
   <a href="#" aria-label="TxPropertySource home">
-    <!-- Faithful recreation of TxPropertySource logo in brand palette -->
-    <svg class="logo-svg" viewBox="0 0 380 80" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(6, 10)">
-        <!-- Wave flag: 3 curved bands flowing over/around roof peak -->
-        <path d="M 0 14 Q 18 -2 38 8 Q 54 14 72 10 L 72 18 Q 54 22 38 16 Q 18 8 0 22 Z" fill="#8B5E3C"/>
-        <path d="M 0 22 Q 18 8 38 16 Q 54 22 72 18 L 72 26 Q 54 30 38 24 Q 18 16 0 30 Z" fill="#C4884A"/>
-        <path d="M 0 30 Q 18 16 38 24 Q 54 30 72 26 L 72 34 Q 54 38 38 32 Q 18 24 0 38 Z" fill="#EBE4DC" opacity="0.92"/>
-        <!-- Roof: inverted V peak only (no base) -->
-        <path d="M 10 56 L 36 18 L 62 56" fill="none" stroke="#B07D5A" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>
-        <!-- 5-point star inside the roof, left of center -->
-        <polygon points="28,36 30,41.5 35.8,41.5 31.1,45 32.9,50.5 28,47.1 23.1,50.5 24.9,45 20.2,41.5 26,41.5" fill="#C4884A"/>
-      </g>
-      <!-- Wordmark: TxPropertySource.com -->
-      <text x="88" y="44" font-family="'Cormorant Garamond', Georgia, serif" font-size="32" font-weight="700" fill="#FAF8F6" letter-spacing="-0.6">TxPropertySource<tspan font-size="20" fill="#C4884A">.com</tspan></text>
-      <!-- Tagline -->
-      <text x="88" y="62" font-family="'DM Sans', system-ui, sans-serif" font-size="7.4" font-weight="600" fill="#B07D5A" letter-spacing="2.8">FIND IT TODAY, MOVE IN TOMORROW!</text>
-    </svg>
+    <img src="/brand_assets/txpropertysource-logo-nav.png" alt="TxPropertySource — Find It Today, Move In Tomorrow" class="logo-svg">
   </a>
   <div class="nav-links">
     <a href="#process" class="nav-a">How It Works</a>
@@ -868,52 +854,8 @@
       <p class="s-sub s-sub-center">Five simple steps from finding your home to owning it — on your terms, at your pace.</p>
     </div>
 
-    <div class="steps">
-      <div class="g-reveal g-d1">
-        <div class="step-num">01</div>
-        <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&h=450&fit=crop&q=80" alt="Find Your Home" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
-        </div>
-        <h3 class="step-h">Find Your Home</h3>
-        <p class="step-p">Browse our selection of Rent-to-Own homes across Texas and find the one that fits you.</p>
-      </div>
-      <div class="g-reveal g-d2">
-        <div class="step-num">02</div>
-        <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=450&fit=crop&q=80" alt="Apply in Minutes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
-        </div>
-        <h3 class="step-h">Apply in Minutes</h3>
-        <p class="step-p">Hassle-free application — low credit is okay. A short form is all it takes to get started.</p>
-      </div>
-      <div class="g-reveal g-d3">
-        <div class="step-num">03</div>
-        <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=450&fit=crop&q=80" alt="Get Approved Fast" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
-        </div>
-        <h3 class="step-h">Get Approved Fast</h3>
-        <p class="step-p">Most applicants hear back in 24 hours. Review your terms and get the keys — move in immediately.</p>
-      </div>
-      <div class="g-reveal g-d4">
-        <div class="step-num">04</div>
-        <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=450&fit=crop&q=80" alt="Live and Build Equity" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
-        </div>
-        <h3 class="step-h">Live and Save</h3>
-        <p class="step-p">Settle in, make it yours, and save while living in your home. Every month moves you closer.</p>
-      </div>
-      <div class="g-reveal g-d5">
-        <div class="step-num">05</div>
-        <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=450&fit=crop&q=80" alt="Own It Outright" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
-        </div>
-        <h3 class="step-h">Own It Outright</h3>
-        <p class="step-p">Complete the purchase when you're ready. Welcome to homeownership — the keys are yours for good.</p>
-      </div>
+    <div class="infographic-wrap g-reveal g-d1">
+      <img src="/brand_assets/how-to-rent-to-own-web.jpg" alt="How to Rent to Own — 5 step infographic from TxPropertySource" class="infographic-img">
     </div>
   </div>
 </section>
@@ -1104,17 +1046,7 @@
 <!-- ─── FOOTER ────────────────────────────────── -->
 <footer>
   <div class="foot-inner">
-    <svg style="height:52px;width:auto;" viewBox="0 0 380 80" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(6, 10)">
-        <path d="M 0 14 Q 18 -2 38 8 Q 54 14 72 10 L 72 18 Q 54 22 38 16 Q 18 8 0 22 Z" fill="#8B5E3C"/>
-        <path d="M 0 22 Q 18 8 38 16 Q 54 22 72 18 L 72 26 Q 54 30 38 24 Q 18 16 0 30 Z" fill="#C4884A"/>
-        <path d="M 0 30 Q 18 16 38 24 Q 54 30 72 26 L 72 34 Q 54 38 38 32 Q 18 24 0 38 Z" fill="#EBE4DC" opacity="0.92"/>
-        <path d="M 10 56 L 36 18 L 62 56" fill="none" stroke="#B07D5A" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>
-        <polygon points="28,36 30,41.5 35.8,41.5 31.1,45 32.9,50.5 28,47.1 23.1,50.5 24.9,45 20.2,41.5 26,41.5" fill="#C4884A"/>
-      </g>
-      <text x="88" y="44" font-family="'Cormorant Garamond', Georgia, serif" font-size="32" font-weight="700" fill="#FAF8F6" letter-spacing="-0.6">TxPropertySource<tspan font-size="20" fill="#C4884A">.com</tspan></text>
-      <text x="88" y="62" font-family="'DM Sans', system-ui, sans-serif" font-size="7.4" font-weight="600" fill="#B07D5A" letter-spacing="2.8">FIND IT TODAY, MOVE IN TOMORROW!</text>
-    </svg>
+    <img src="/brand_assets/txpropertysource-logo-light.png" alt="TxPropertySource — Find It Today, Move In Tomorrow" style="height:56px;width:auto;background:#fff;padding:8px 16px;border-radius:6px;">
     <nav class="foot-links">
       <a href="#process" class="foot-a">How It Works</a>
       <a href="#properties" class="foot-a">Properties</a>
@@ -1271,7 +1203,7 @@ const faqs = [
   { q: 'How fast is the approval process?',
     a: 'Fast. Because we handle everything in-house, there are no committees or drawn-out review periods — Rent-to-Own applications are typically reviewed within one business day.' },
   { q: 'Are all homes eligible for Rent-to-Own?',
-    a: 'Yes — every single-family property in our Texas inventory is offered under our Rent-to-Own program, subject to each listing\'s specific terms.' },
+    a: 'Yes — every single-family property being offered by TxPropertySource is part of our Rent-to-Own program, subject to each listing\'s specific terms.' },
   { q: 'What are the upfront costs required?',
     a: 'We offer flexible terms and low upfront costs to make homeownership as accessible as possible. Each property listing details its specific requirements.' },
 ];
