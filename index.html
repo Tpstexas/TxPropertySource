@@ -402,6 +402,16 @@
 
     .prop-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 
+    /* Featured-properties grid: flex-based so incomplete last rows center (4 → 3+1, 5 → 3+2) */
+    #featPropGrid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    #featPropGrid > .prop-card { flex: 0 1 calc(33.333% - 14px); min-width: 280px; }
+    @media (max-width: 960px) {
+      #featPropGrid > .prop-card { flex: 0 1 calc(50% - 10px); }
+    }
+    @media (max-width: 640px) {
+      #featPropGrid > .prop-card { flex: 0 1 100%; }
+    }
+
     .prop-card {
       background: var(--white);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
