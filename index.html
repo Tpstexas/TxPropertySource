@@ -1280,7 +1280,8 @@ faqs.forEach(f => {
     if (!types || !types.length) return 'Available';
     const hasRTO = types.includes('rent-to-own');
     const hasLease = types.includes('lease');
-    if (hasLease && !hasRTO) return 'Lease';
+    if (hasRTO && hasLease) return 'Rent to Own &amp; Lease';
+    if (hasLease) return 'Lease';
     return 'Rent to Own';
   }
 
@@ -1299,8 +1300,8 @@ faqs.forEach(f => {
     const data  = await res.json();
     const props  = Array.isArray(data) ? data : [];
 
-    // Show up to 3 featured + active properties; fall back to any active if fewer than 3 featured
-    let featured = props.filter(p => p.active && p.featured).slice(0, 3);
+    // Show all featured+active properties; fall back to filling with non-featured active ones if fewer than 3
+    let featured = props.filter(p => p.active && p.featured);
     if (featured.length < 3) {
       const rest = props.filter(p => p.active && !p.featured);
       featured = [...featured, ...rest].slice(0, 3);
@@ -1313,7 +1314,7 @@ faqs.forEach(f => {
       return;
     }
 
-    const delays = ['g-d1', 'g-d2', 'g-d3'];
+    const delays = ['g-d1', 'g-d2', 'g-d3', 'g-d4', 'g-d5', 'g-d6'];
     grid.innerHTML = featured.map((p, i) => {
       const cover = (p.images && p.images[0]) || p.image || '';
       const desc  = p.description ? `<p style="font-size:12.5px;line-height:1.65;color:rgba(15,15,15,.55);margin-bottom:14px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${p.description}</p>` : '';

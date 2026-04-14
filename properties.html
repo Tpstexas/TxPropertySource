@@ -489,7 +489,8 @@ function tagLabel(types) {
   if (!types || !types.length) return { label: 'Available', cls: 'prop-tag' };
   const hasRTO = types.includes('rent-to-own');
   const hasLease = types.includes('lease');
-  if (hasLease && !hasRTO) return { label: 'Lease', cls: 'prop-tag prop-tag-lease' };
+  if (hasRTO && hasLease) return { label: 'Rent to Own &amp; Lease', cls: 'prop-tag prop-tag-rto' };
+  if (hasLease) return { label: 'Lease', cls: 'prop-tag prop-tag-lease' };
   return { label: 'Rent to Own', cls: 'prop-tag prop-tag-rto' };
 }
 
