@@ -278,10 +278,10 @@
       <!-- Right: price card -->
       <div>
         <div class="price-card">
-          <div style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:14px;">Rent-to-Own Terms</div>
+          <div id="terms-header" style="font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:14px;">Rent-to-Own Terms</div>
           <!-- Move-In: hero number -->
           <div id="movein-block">
-            <div class="price-movein-lbl">RTO Move-In</div>
+            <div class="price-movein-lbl" id="movein-label">RTO Move-In</div>
             <div class="price-movein" id="price-movein">—</div>
             <div class="price-movein-sub">Amount needed to get started</div>
           </div>
@@ -294,10 +294,12 @@
               <div class="price-monthly" id="price-lease">—</div>
             </div>
           </div>
-          <!-- Total Price: secondary -->
-          <div class="price-divider"></div>
-          <div class="price-total-lbl">Purchase Price</div>
-          <div class="price-total" id="price-main">—</div>
+          <!-- Total Price: secondary (hidden for lease-only) -->
+          <div id="purchase-block">
+            <div class="price-divider"></div>
+            <div class="price-total-lbl">Purchase Price</div>
+            <div class="price-total" id="price-main">—</div>
+          </div>
           <a href="tel:9362135767" class="cta-phone">Call 936-213-5767</a>
           <a href="mailto:sales.aadpmanagement@gmail.com?subject=Property%20Inquiry" class="cta-email">Email Us a Question</a>
           <p class="price-note">All applications subject to credit review.</p>
@@ -426,8 +428,13 @@ function render(p) {
   buildGallery(imgs);
 
   // Type badges
+  const types = p.type || [];
+  const hasRTO = types.includes('rent-to-own');
+  const hasLease = types.includes('lease');
+  const isLeaseOnly = hasLease && !hasRTO;
   const typesEl = document.getElementById('prop-types');
-  if ((p.type||[]).includes('rent-to-own'))   typesEl.innerHTML += `<span class="prop-type-badge badge-rto">Rent to Own</span>`;
+  if (hasRTO)      typesEl.innerHTML += `<span class="prop-type-badge badge-rto">Rent to Own</span>`;
+  if (isLeaseOnly) typesEl.innerHTML += `<span class="prop-type-badge badge-rto">Lease</span>`;
 
   // Title & location
   document.getElementById('prop-title').textContent = p.title || 'Available Property';
@@ -444,12 +451,21 @@ function render(p) {
   if (!stats.length) sb.style.display = 'none';
 
   // Prices
-  document.getElementById('price-main').textContent   = fmtPrice(p.price) || 'Call for Price';
   document.getElementById('price-movein').textContent = fmtPrice(p.movein) || 'Contact Us';
-
   document.getElementById('price-monthly').textContent = p.monthly ? fmtPrice(p.monthly) + '/mo' : 'Contact Us';
+
+  // Lease-only presentation: relabel move-in, swap header, hide purchase price
+  if (isLeaseOnly) {
+    document.getElementById('terms-header').textContent = 'Lease Terms';
+    document.getElementById('movein-label').textContent = 'First Month + Deposit';
+    document.getElementById('purchase-block').style.display = 'none';
+  } else {
+    document.getElementById('price-main').textContent = fmtPrice(p.price) || 'Call for Price';
+  }
+
+  // Lease Option secondary line — only when property has BOTH RTO and lease
   const leaseBlock = document.getElementById('lease-block');
-  if ((p.type||[]).includes('lease')) {
+  if (hasRTO && hasLease) {
     document.getElementById('price-lease').textContent = p.monthly ? fmtPrice(p.monthly) + '/mo' : 'Contact Us';
     leaseBlock.style.display = '';
   } else {

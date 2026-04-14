@@ -427,7 +427,7 @@
   <div class="cta-inner">
     <div class="cta-label">Ready to Get Started?</div>
     <h2 class="cta-h">Find Your <em>Dream Home</em><br>Today</h2>
-    <p class="cta-sub">No bank required. No credit barriers. Just a clear path to ownership.</p>
+    <p class="cta-sub">Low credit okay. Simple application. Just a clear path to ownership.</p>
     <a href="tel:9362135767" class="btn-sage">Call 936-213-5767</a>
     <a href="/#contact" class="btn-outline">Send a Message</a>
   </div>
@@ -487,7 +487,15 @@ const SQFT_SVG= `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" str
 
 function tagLabel(types) {
   if (!types || !types.length) return { label: 'Available', cls: 'prop-tag' };
+  const hasRTO = types.includes('rent-to-own');
+  const hasLease = types.includes('lease');
+  if (hasLease && !hasRTO) return { label: 'Lease', cls: 'prop-tag prop-tag-lease' };
   return { label: 'Rent to Own', cls: 'prop-tag prop-tag-rto' };
+}
+
+function isLeaseOnly(types) {
+  if (!types || !types.length) return false;
+  return types.includes('lease') && !types.includes('rent-to-own');
 }
 
 function formatPrice(p) {
@@ -510,9 +518,10 @@ function renderCard(p) {
   const desc = p.description ? `<p style="font-size:12.5px;line-height:1.65;color:rgba(15,15,15,.55);margin-bottom:14px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${p.description}</p>` : '';
   const moveinVal  = p.movein  ? `$${Number(p.movein).toLocaleString()}`  : null;
   const monthlyVal = p.monthly ? `$${Number(p.monthly).toLocaleString()}` : null;
+  const moveinLabel = isLeaseOnly(p.type) ? 'First Month + Deposit' : 'RTO Move-In';
   const priceRow = `
     <div>
-      <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:2px;">RTO Move-In</div>
+      <div style="font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,136,74,.7);margin-bottom:2px;">${moveinLabel}</div>
       <span class="prop-price" style="color:var(--gold);">${moveinVal || 'Contact Us'}</span>
     </div>
     <div style="text-align:right;">
