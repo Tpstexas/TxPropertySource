@@ -369,7 +369,7 @@
     /* ── HOW IT WORKS ─────────────────────── */
     #process { background: var(--dark2); }
 
-    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 36px; }
+    .steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 28px; }
 
     .step-num {
       font-family: 'Cormorant Garamond', serif;
@@ -715,7 +715,7 @@
       .svc-h3 { font-size: 28px; }
       .feat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .feat-card { padding: 22px 18px; }
-      .steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .steps { grid-template-columns: repeat(3,1fr); gap: 24px; }
       .step-num { font-size: 52px; }
       .prop-grid { grid-template-columns: 1fr 1fr; }
       .why-layout { grid-template-columns: 1fr; gap: 32px; }
@@ -757,13 +757,22 @@
 <!-- ─── NAV ──────────────────────────────────── -->
 <nav id="nav">
   <a href="#" aria-label="TxPropertySource home">
-    <!-- TX monogram seal logo in charcoal/copper palette -->
-    <svg class="logo-svg" viewBox="0 0 230 56" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="6" width="46" height="46" fill="none" stroke="#B07D5A" stroke-width="1.5"/>
-      <rect x="5" y="9" width="40" height="40" fill="none" stroke="#B07D5A" stroke-width="0.5" opacity="0.5"/>
-      <text x="25" y="39" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" fill="#B07D5A" text-anchor="middle" letter-spacing="-1">TX</text>
-      <text x="58" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="600" fill="#FAF8F6" letter-spacing="-0.5">TxProperty</text>
-      <text x="58" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="10" font-weight="600" fill="#B07D5A" letter-spacing="4">SOURCE</text>
+    <!-- House + banner + star logo (brand palette) -->
+    <svg class="logo-svg" viewBox="0 0 290 56" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(2, 4)">
+        <!-- Banner ribbon (3 sage/gold/cream bands curving over roof) -->
+        <path d="M 6 8 Q 26 -4 50 4 L 50 10 Q 28 0 6 14 Z" fill="#8B5E3C"/>
+        <path d="M 6 14 Q 28 0 50 10 L 50 16 Q 28 6 6 20 Z" fill="#C4884A"/>
+        <path d="M 6 20 Q 28 6 50 16 L 50 22 Q 28 12 6 26 Z" fill="#EBE4DC" opacity="0.95"/>
+        <!-- Roof outline + base -->
+        <path d="M 7 44 L 28 16 L 49 44" fill="none" stroke="#B07D5A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="7" y1="44" x2="49" y2="44" stroke="#B07D5A" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- Star inside roof -->
+        <polygon points="28,24 29.7,29.3 35.3,29.3 30.8,32.6 32.5,37.9 28,34.6 23.5,37.9 25.2,32.6 20.7,29.3 26.3,29.3" fill="#C4884A"/>
+      </g>
+      <!-- Wordmark -->
+      <text x="62" y="32" font-family="'Cormorant Garamond', Georgia, serif" font-size="26" font-weight="700" fill="#FAF8F6" letter-spacing="-0.5">TxPropertySource</text>
+      <text x="62" y="46" font-family="'DM Sans', system-ui, sans-serif" font-size="6.2" font-weight="600" fill="#B07D5A" letter-spacing="2.4">FIND IT TODAY, MOVE IN TOMORROW</text>
     </svg>
   </a>
   <div class="nav-links">
@@ -813,7 +822,7 @@
     </h1>
 
     <p class="hero-sub" id="heroSub">
-      Rent-to-Own available on every property — simple applications, flexible terms, no red tape.
+      Rent-to-Own available on every single-family property — simple applications, flexible terms, no red tape.
     </p>
 
     <div class="hero-ctas" id="heroCtas">
@@ -855,46 +864,55 @@
         <span class="label label-light" style="padding:0;display:inline;">Simple Process</span>
         <span style="width:28px;height:1px;background:var(--sage-l);display:block;"></span>
       </div>
-      <h2 class="h2">The Path to <em>Homeownership</em></h2>
-      <p class="s-sub s-sub-center">Four simple steps to secure your dream home — on your terms, at your pace.</p>
+      <h2 class="h2">How to <em>Rent to Own</em></h2>
+      <p class="s-sub s-sub-center">Five simple steps from finding your home to owning it — on your terms, at your pace.</p>
     </div>
 
     <div class="steps">
       <div class="g-reveal g-d1">
         <div class="step-num">01</div>
         <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&h=450&fit=crop&q=80" alt="Browse Properties" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&h=450&fit=crop&q=80" alt="Find Your Home" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
         </div>
-        <h3 class="step-h">Browse Properties</h3>
-        <p class="step-p">Browse our curated selection of properties across Texas to find your match.</p>
+        <h3 class="step-h">Find Your Home</h3>
+        <p class="step-p">Browse our selection of Rent-to-Own homes across Texas and find the one that fits you.</p>
       </div>
       <div class="g-reveal g-d2">
         <div class="step-num">02</div>
         <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=450&fit=crop&q=80" alt="Apply Online" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=450&fit=crop&q=80" alt="Apply in Minutes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
         </div>
         <h3 class="step-h">Apply in Minutes</h3>
-        <p class="step-p">Submit your application easily through our simplified online portal.</p>
+        <p class="step-p">Hassle-free application — low credit is okay. A short form is all it takes to get started.</p>
       </div>
       <div class="g-reveal g-d3">
         <div class="step-num">03</div>
         <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=450&fit=crop&q=80" alt="Sign Agreement" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=450&fit=crop&q=80" alt="Get Approved Fast" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
         </div>
-        <h3 class="step-h">Review Your Terms</h3>
-        <p class="step-p">Review your Rent-to-Own terms, move-in costs, and monthly payment — clear and upfront.</p>
+        <h3 class="step-h">Get Approved Fast</h3>
+        <p class="step-p">Most applicants hear back in 24 hours. Review your terms and get the keys — move in immediately.</p>
       </div>
       <div class="g-reveal g-d4">
         <div class="step-num">04</div>
         <div class="step-vis">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=450&fit=crop&q=80" alt="Get Your Keys" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=450&fit=crop&q=80" alt="Live and Build Equity" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
         </div>
-        <h3 class="step-h">Get Your Keys</h3>
-        <p class="step-p">Finalize paperwork, collect your keys, and start building equity today.</p>
+        <h3 class="step-h">Live and Save</h3>
+        <p class="step-p">Settle in, make it yours, and save while living in your home. Every month moves you closer.</p>
+      </div>
+      <div class="g-reveal g-d5">
+        <div class="step-num">05</div>
+        <div class="step-vis">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=450&fit=crop&q=80" alt="Own It Outright" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,.15) 0%,rgba(26,26,26,.45) 100%);"></div>
+        </div>
+        <h3 class="step-h">Own It Outright</h3>
+        <p class="step-p">Complete the purchase when you're ready. Welcome to homeownership — the keys are yours for good.</p>
       </div>
     </div>
   </div>
@@ -1086,12 +1104,17 @@
 <!-- ─── FOOTER ────────────────────────────────── -->
 <footer>
   <div class="foot-inner">
-    <svg style="height:32px;width:auto;" viewBox="0 0 230 56" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="6" width="46" height="46" fill="none" stroke="#B07D5A" stroke-width="1.5"/>
-      <rect x="5" y="9" width="40" height="40" fill="none" stroke="#B07D5A" stroke-width="0.5" opacity="0.5"/>
-      <text x="25" y="39" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="700" fill="#B07D5A" text-anchor="middle" letter-spacing="-1">TX</text>
-      <text x="58" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="24" font-weight="600" fill="#FAF8F6" letter-spacing="-0.5">TxProperty</text>
-      <text x="58" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="10" font-weight="600" fill="#B07D5A" letter-spacing="4">SOURCE</text>
+    <svg style="height:42px;width:auto;" viewBox="0 0 290 56" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(2, 4)">
+        <path d="M 6 8 Q 26 -4 50 4 L 50 10 Q 28 0 6 14 Z" fill="#8B5E3C"/>
+        <path d="M 6 14 Q 28 0 50 10 L 50 16 Q 28 6 6 20 Z" fill="#C4884A"/>
+        <path d="M 6 20 Q 28 6 50 16 L 50 22 Q 28 12 6 26 Z" fill="#EBE4DC" opacity="0.95"/>
+        <path d="M 7 44 L 28 16 L 49 44" fill="none" stroke="#B07D5A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="7" y1="44" x2="49" y2="44" stroke="#B07D5A" stroke-width="2.4" stroke-linecap="round"/>
+        <polygon points="28,24 29.7,29.3 35.3,29.3 30.8,32.6 32.5,37.9 28,34.6 23.5,37.9 25.2,32.6 20.7,29.3 26.3,29.3" fill="#C4884A"/>
+      </g>
+      <text x="62" y="32" font-family="'Cormorant Garamond', Georgia, serif" font-size="26" font-weight="700" fill="#FAF8F6" letter-spacing="-0.5">TxPropertySource</text>
+      <text x="62" y="46" font-family="'DM Sans', system-ui, sans-serif" font-size="6.2" font-weight="600" fill="#B07D5A" letter-spacing="2.4">FIND IT TODAY, MOVE IN TOMORROW</text>
     </svg>
     <nav class="foot-links">
       <a href="#process" class="foot-a">How It Works</a>
@@ -1222,6 +1245,7 @@ document.querySelectorAll('.g-d1').forEach(el => el.dataset.delay = '0.08');
 document.querySelectorAll('.g-d2').forEach(el => el.dataset.delay = '0.16');
 document.querySelectorAll('.g-d3').forEach(el => el.dataset.delay = '0.24');
 document.querySelectorAll('.g-d4').forEach(el => el.dataset.delay = '0.32');
+document.querySelectorAll('.g-d5').forEach(el => el.dataset.delay = '0.40');
 
 document.querySelectorAll('.g-reveal').forEach(el => {
   const delay = parseFloat(el.dataset.delay || 0);
@@ -1248,7 +1272,7 @@ const faqs = [
   { q: 'How fast is the approval process?',
     a: 'Fast. Because we handle everything in-house, there are no committees or drawn-out review periods — Rent-to-Own applications are typically reviewed within one business day.' },
   { q: 'Are all homes eligible for Rent-to-Own?',
-    a: 'Yes — every property in our Texas inventory is offered under our Rent-to-Own program, subject to each listing\'s specific terms.' },
+    a: 'Yes — every single-family property in our Texas inventory is offered under our Rent-to-Own program, subject to each listing\'s specific terms.' },
   { q: 'What are the upfront costs required?',
     a: 'We offer flexible terms and low upfront costs to make homeownership as accessible as possible. Each property listing details its specific requirements.' },
 ];

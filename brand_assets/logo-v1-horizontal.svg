@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 56" width="580" height="112">
+  <!-- ICON: house with banner and star -->
+  <g transform="translate(2, 4)">
+    <!-- Banner ribbon (3 sage/gold/cream bands, curving over the roof) -->
+    <path d="M 6 8 Q 26 -4 50 4 L 50 10 Q 28 0 6 14 Z" fill="#8B5E3C"/>
+    <path d="M 6 14 Q 28 0 50 10 L 50 16 Q 28 6 6 20 Z" fill="#C4884A"/>
+    <path d="M 6 20 Q 28 6 50 16 L 50 22 Q 28 12 6 26 Z" fill="#EBE4DC" opacity="0.95"/>
+    <!-- Roof outline -->
+    <path d="M 7 44 L 28 16 L 49 44" fill="none" stroke="#B07D5A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+    <!-- Base line of house -->
+    <line x1="7" y1="44" x2="49" y2="44" stroke="#B07D5A" stroke-width="2.4" stroke-linecap="round"/>
+    <!-- 5-point star inside the roof peak -->
+    <polygon points="28,24 29.7,29.3 35.3,29.3 30.8,32.6 32.5,37.9 28,34.6 23.5,37.9 25.2,32.6 20.7,29.3 26.3,29.3" fill="#C4884A"/>
+  </g>
+  <!-- WORDMARK -->
+  <text x="62" y="32" font-family="'Cormorant Garamond', Georgia, serif" font-size="26" font-weight="700" fill="#FAF8F6" letter-spacing="-0.5">TxPropertySource</text>
+  <text x="62" y="46" font-family="'DM Sans', system-ui, sans-serif" font-size="6.2" font-weight="600" fill="#B07D5A" letter-spacing="2.4">FIND IT TODAY, MOVE IN TOMORROW</text>
+</svg>
