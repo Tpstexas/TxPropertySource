@@ -158,35 +158,6 @@
       max-width: 520px;
     }
 
-    /* ── FILTERS ──────────────────────────── */
-    #filters-bar {
-      background: var(--dark);
-      padding: 0 60px 48px;
-      position: relative; z-index: 2;
-    }
-    .filters-inner {
-      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-    }
-    .filter-btn {
-      font-size: 10px; font-weight: 600; letter-spacing: .16em;
-      text-transform: uppercase; padding: 9px 22px;
-      border: 1px solid rgba(176,125,90,.25); background: transparent;
-      color: rgba(250,248,246,.6); cursor: pointer;
-      transition: border-color .25s, background .25s, color .25s, transform .2s;
-    }
-    .filter-btn:hover {
-      border-color: rgba(176,125,90,.55); color: var(--white);
-      transform: translateY(-2px);
-    }
-    .filter-btn.active {
-      background: var(--sage); border-color: var(--sage);
-      color: var(--white);
-    }
-    .filter-count {
-      font-size: 10px; font-weight: 500; letter-spacing: .12em;
-      color: var(--dim2); margin-left: auto;
-    }
-
     /* ── PROPERTIES GRID ──────────────────── */
     #listings {
       background: var(--cream);
@@ -229,8 +200,6 @@
       text-transform: uppercase; padding: 4px 10px;
     }
     .prop-tag-rto { background: var(--sage); }
-    .prop-tag-of  { background: var(--gold); }
-    .prop-tag-both { background: var(--dark2); }
 
     .prop-body { padding: 22px 24px 26px; }
     .prop-h {
@@ -379,7 +348,6 @@
       .nav-links, .nav-btn { display: none; }
       .burger { display: flex; }
       #page-hero { padding: 130px 24px 60px; }
-      #filters-bar { padding: 0 24px 40px; }
       #listings { padding: 48px 24px 80px; }
       .prop-grid { grid-template-columns: 1fr; }
       #cta-strip { padding: 60px 24px; }
@@ -436,20 +404,11 @@
       <span class="page-hero-badge-text">Available Now</span>
     </div>
     <h1 class="page-hero-h">All <em>Properties</em></h1>
-    <p class="page-hero-sub">Browse our full inventory of Rent-to-Own and Owner Finance homes across Houston and the surrounding areas.</p>
+    <p class="page-hero-sub">Browse our full inventory of Rent-to-Own homes across Houston and the surrounding areas.</p>
   </div>
 </section>
 
 
-<!-- ─── FILTER BAR ────────────────────────── -->
-<div id="filters-bar">
-  <div class="filters-inner">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="rent-to-own">Rent to Own</button>
-    <button class="filter-btn" data-filter="owner-finance">Owner Finance</button>
-    <span class="filter-count" id="filterCount"></span>
-  </div>
-</div>
 
 
 <!-- ─── LISTINGS ──────────────────────────── -->
@@ -493,11 +452,6 @@
     </nav>
     <span class="foot-copy">© 2026 TxPropertySource. All rights reserved.</span>
   </div>
-  <div style="max-width:1100px;margin:32px auto 0;padding:24px 60px 0;border-top:1px solid rgba(235,220,200,.1);font-size:10px;line-height:1.6;color:rgba(235,220,200,.42);letter-spacing:.02em;">
-    <p style="margin-bottom:10px;font-weight:500;color:rgba(235,220,200,.6);">AADP Lending LLC &middot; NMLS #2528293 &nbsp;|&nbsp; Aron Paul Anderson &middot; NMLS #2491338 &nbsp;|&nbsp; Equal Housing Opportunity</p>
-    <p style="margin:0 0 10px;">Properties are sold by entities under common ownership with AADP Lending LLC. Financing through AADP Lending is offered as an option — buyers are not required to use AADP Lending and may use any lender of their choice.</p>
-    <p style="margin:0;">Consumers wishing to file a complaint against a company or a residential mortgage loan originator should complete and send a complaint form to the Texas Department of Savings and Mortgage Lending, 2601 North Lamar, Suite 201, Austin, Texas 78705. Complaint forms and instructions may be obtained from the department's website at www.sml.texas.gov. A toll-free consumer hotline is available at 1-877-276-5550. The department maintains a recovery fund to make payments of certain actual out-of-pocket damages sustained by borrowers caused by acts of licensed residential mortgage loan originators. A written application for reimbursement from the recovery fund must be filed with and investigated by the department prior to the payment of a claim. For more information about the recovery fund, please consult the department's website at www.sml.texas.gov.</p>
-  </div>
 </footer>
 
 
@@ -525,7 +479,6 @@ function closeMob() {
 
 // ── PROPERTIES DATA & RENDERING ─────────────
 let allProperties = [];
-let activeFilter  = 'all';
 
 const PIN_SVG = `<svg width="11" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
 const BED_SVG = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 012 2v10M2 14h20"/><rect x="5" y="4" width="4" height="5" rx="1"/></svg>`;
@@ -534,11 +487,7 @@ const SQFT_SVG= `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" str
 
 function tagLabel(types) {
   if (!types || !types.length) return { label: 'Available', cls: 'prop-tag' };
-  const hasRTO = types.includes('rent-to-own');
-  const hasOF  = types.includes('owner-finance');
-  if (hasRTO && hasOF) return { label: 'Rent to Own &amp; Owner Finance', cls: 'prop-tag prop-tag-both' };
-  if (hasRTO)          return { label: 'Rent to Own', cls: 'prop-tag prop-tag-rto' };
-  return               { label: 'Owner Finance', cls: 'prop-tag prop-tag-of' };
+  return { label: 'Rent to Own', cls: 'prop-tag prop-tag-rto' };
 }
 
 function formatPrice(p) {
@@ -590,29 +539,16 @@ function renderCard(p) {
     </div>`;
 }
 
-function applyFilter(filter) {
-  activeFilter = filter;
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.filter === filter);
-  });
-
-  const filtered = allProperties.filter(p => {
-    if (!p.active) return false;
-    if (filter === 'all') return true;
-    return p.type && p.type.includes(filter);
-  });
-
+function renderAll() {
+  const active = allProperties.filter(p => p.active);
   const grid = document.getElementById('propGrid');
-  const count = document.getElementById('filterCount');
 
-  if (!filtered.length) {
-    grid.innerHTML = `<div class="empty-state"><p>No properties match this filter yet — check back soon.</p></div>`;
-    count.textContent = '';
+  if (!active.length) {
+    grid.innerHTML = `<div class="empty-state"><p>No properties available yet — check back soon.</p></div>`;
     return;
   }
 
-  grid.innerHTML = filtered.map(renderCard).join('');
-  count.textContent = `${filtered.length} listing${filtered.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = active.map(renderCard).join('');
 
   // Staggered fade-in
   grid.querySelectorAll('.prop-card').forEach((card, i) => {
@@ -632,18 +568,13 @@ async function loadProperties() {
     const res  = await fetch('/api/properties');
     const data = await res.json();
     allProperties = Array.isArray(data) ? data : [];
-    applyFilter(activeFilter);
+    renderAll();
   } catch (err) {
     console.error('Failed to load properties:', err);
     document.getElementById('propGrid').innerHTML =
       `<div class="empty-state"><p>Unable to load properties. Please try again.</p></div>`;
   }
 }
-
-// Filter button clicks
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
-});
 
 loadProperties();
 </script>
