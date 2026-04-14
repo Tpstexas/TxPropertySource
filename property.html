@@ -100,7 +100,6 @@
     .prop-types { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
     .prop-type-badge { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 12px; }
     .badge-rto  { background: var(--sage); color: #fff; }
-    .badge-of   { background: var(--gold); color: #111; }
 
     .prop-title {
       font-family: 'Cormorant Garamond', serif;
@@ -290,6 +289,10 @@
           <div id="monthly-block">
             <div class="price-monthly-lbl">Monthly Rent</div>
             <div class="price-monthly" id="price-monthly">—</div>
+            <div id="lease-block" style="display:none;margin-top:10px;">
+              <div class="price-monthly-lbl">Lease Option</div>
+              <div class="price-monthly" id="price-lease">—</div>
+            </div>
           </div>
           <!-- Total Price: secondary -->
           <div class="price-divider"></div>
@@ -322,11 +325,6 @@
       <a href="/#contact" class="foot-a">Contact</a>
     </nav>
     <span class="foot-copy">© 2026 TxPropertySource. All rights reserved.</span>
-  </div>
-  <div style="max-width:1100px;margin:32px auto 0;padding:24px 60px 0;border-top:1px solid rgba(235,220,200,.1);font-size:10px;line-height:1.6;color:rgba(235,220,200,.42);letter-spacing:.02em;">
-    <p style="margin-bottom:10px;font-weight:500;color:rgba(235,220,200,.6);">AADP Lending LLC &middot; NMLS #2528293 &nbsp;|&nbsp; Aron Paul Anderson &middot; NMLS #2491338 &nbsp;|&nbsp; Equal Housing Opportunity</p>
-    <p style="margin:0 0 10px;">Properties are sold by entities under common ownership with AADP Lending LLC. Financing through AADP Lending is offered as an option — buyers are not required to use AADP Lending and may use any lender of their choice.</p>
-    <p style="margin:0;">Consumers wishing to file a complaint against a company or a residential mortgage loan originator should complete and send a complaint form to the Texas Department of Savings and Mortgage Lending, 2601 North Lamar, Suite 201, Austin, Texas 78705. Complaint forms and instructions may be obtained from the department's website at www.sml.texas.gov. A toll-free consumer hotline is available at 1-877-276-5550. The department maintains a recovery fund to make payments of certain actual out-of-pocket damages sustained by borrowers caused by acts of licensed residential mortgage loan originators. A written application for reimbursement from the recovery fund must be filed with and investigated by the department prior to the payment of a claim. For more information about the recovery fund, please consult the department's website at www.sml.texas.gov.</p>
   </div>
 </footer>
 
@@ -430,7 +428,6 @@ function render(p) {
   // Type badges
   const typesEl = document.getElementById('prop-types');
   if ((p.type||[]).includes('rent-to-own'))   typesEl.innerHTML += `<span class="prop-type-badge badge-rto">Rent to Own</span>`;
-  if ((p.type||[]).includes('owner-finance'))  typesEl.innerHTML += `<span class="prop-type-badge badge-of">Owner Finance</span>`;
 
   // Title & location
   document.getElementById('prop-title').textContent = p.title || 'Available Property';
@@ -451,6 +448,13 @@ function render(p) {
   document.getElementById('price-movein').textContent = fmtPrice(p.movein) || 'Contact Us';
 
   document.getElementById('price-monthly').textContent = p.monthly ? fmtPrice(p.monthly) + '/mo' : 'Contact Us';
+  const leaseBlock = document.getElementById('lease-block');
+  if ((p.type||[]).includes('lease')) {
+    document.getElementById('price-lease').textContent = p.monthly ? fmtPrice(p.monthly) + '/mo' : 'Contact Us';
+    leaseBlock.style.display = '';
+  } else {
+    leaseBlock.style.display = 'none';
+  }
 
   // Description
   if (p.description) {
