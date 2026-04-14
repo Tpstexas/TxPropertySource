@@ -371,7 +371,15 @@
 
     .steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 28px; }
     .infographic-wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .infographic-img { width: 100%; height: auto; display: block; }
+    .infographic-img, .infographic-wrap picture { width: 100%; height: auto; display: block; }
+    .infographic-wrap picture img { width: 100%; height: auto; display: block; }
+    @media (max-width: 767px) {
+      /* Let the square infographic bleed to the viewport edges on mobile, escaping the section padding */
+      .infographic-wrap { padding: 0; max-width: none; margin-left: -24px; margin-right: -24px; }
+    }
+    @media (max-width: 560px) {
+      .infographic-wrap { margin-left: -20px; margin-right: -20px; }
+    }
 
     .step-num {
       font-family: 'Cormorant Garamond', serif;
@@ -855,7 +863,10 @@
     </div>
 
     <div class="infographic-wrap g-reveal g-d1">
-      <img src="/brand_assets/how-to-rent-to-own-dark-wide-web.jpg" alt="How to Rent to Own — 5 step infographic from TxPropertySource" class="infographic-img">
+      <picture>
+        <source media="(min-width: 768px)" srcset="/brand_assets/how-to-rent-to-own-wide-desktop.jpg">
+        <img src="/brand_assets/how-to-rent-to-own-dark-web.jpg" alt="How to Rent to Own — 5 step infographic from TxPropertySource" class="infographic-img">
+      </picture>
     </div>
   </div>
 </section>
